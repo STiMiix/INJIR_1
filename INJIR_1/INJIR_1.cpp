@@ -1,10 +1,7 @@
 ﻿#include <iostream>
 #include <GL/glew.h>
-#include <GL/freeglut.h>								// добавили библиотеку
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <GL/freeglut.h>							
+#include "math_3d.h"
 
 GLuint VBO;
 
@@ -48,15 +45,14 @@ int main(int argc, char** argv) {
 
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// сменили цвет, используемый при очистке
 
-	//glutMainLoop();										// отдали контроль глюту, и он передаст их в функцию обратного вызова RenderSceneCB
 	GLenum res = glewInit();
 	if (res != GLEW_OK)									// проверка на ошибки
 	{
 		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 		return 1;
 	}
-	glm::vec3 vec = glm::vec3(0.0f, 0.0f, 0.0f);	// инициализировали вектор
-	glm::vec3 vecArr[]{ vec };						// и массив векторов
+	Vector3f vecArr[1];							// инициализировали вектор
+	vecArr[0] = Vector3f(0.0f, 0.0f, 0.0f);		// и массив векторов					
 	glGenBuffers(1, &VBO);							// определили функцию для генерации объектов-переменных
 	// кол-во объектов для создания и ссылка на массив GLuints для хранения указателя на данные 
 
