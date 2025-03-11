@@ -1,10 +1,7 @@
 ﻿#include <iostream>
 #include <GL/glew.h>
-#include <GL/freeglut.h>								// добавили библиотеку
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <GL/freeglut.h>								
+#include "math_3d.h"
 
 GLuint VBO;
 
@@ -46,19 +43,17 @@ int main(int argc, char** argv) {
 	//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// установили цвет, который будет использован во время след. очистки буфера кадра
 			//	 red   green blue alpha-channel
 
-	//glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// сменили цвет, используемый при очистке
-
-	//glutMainLoop();										// отдали контроль глюту, и он передаст их в функцию обратного вызова RenderSceneCB
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// сменили цвет, используемый при очистке
 	GLenum res = glewInit();
 	if (res != GLEW_OK)									// проверка на ошибки
 	{
 		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 		return 1;
 	}
-	glm::vec3 vecArrTrngl[3];
-	vecArrTrngl[0] = glm::vec3(-1.0f, -1.0f, 0.0f);
-	vecArrTrngl[1] = glm::vec3(1.0f, -1.0f, 0.0f);
-	vecArrTrngl[2] = glm::vec3(0.0f, 1.0f, 0.0f);
+	Vector3f vecArrTrngl[3]; // ìàññèâ èç òðåõ ýëåìåíòîâ 
+	vecArrTrngl[0] = Vector3f(-1.0f, -1.0f, 0.0f); // 3 âåðøèíû äëÿ òðåóãîëüíèêà 
+	vecArrTrngl[1] = Vector3f(1.0f, -1.0f, 0.0f);
+	vecArrTrngl[2] = Vector3f(0.0f, 1.0f, 0.0f);
 
 	glGenBuffers(1, &VBO);
 
