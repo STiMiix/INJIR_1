@@ -50,8 +50,8 @@ int main(int argc, char** argv) {
 		fprintf(stderr, "Error: '%s'\n", glewGetErrorString(res));
 		return 1;
 	}
-	Vector3f vecArrTrngl[3]; // ìàññèâ èç òðåõ ýëåìåíòîâ 
-	vecArrTrngl[0] = Vector3f(-1.0f, -1.0f, 0.0f); // 3 âåðøèíû äëÿ òðåóãîëüíèêà 
+	Vector3f vecArrTrngl[3];  
+	vecArrTrngl[0] = Vector3f(-1.0f, -1.0f, 0.0f); 
 	vecArrTrngl[1] = Vector3f(1.0f, -1.0f, 0.0f);
 	vecArrTrngl[2] = Vector3f(0.0f, 1.0f, 0.0f);
 
